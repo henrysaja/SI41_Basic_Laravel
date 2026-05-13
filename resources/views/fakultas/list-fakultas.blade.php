@@ -28,7 +28,7 @@
                             <td>{{ $item->nama_fakultas }}</td>
                             <td>{{ $item->nama_dekan }}</td>
                             <td>
-                                
+
                                 <a href="/fakultas/{{ $item->id }}/edit" class="btn btn-warning">Edit</a>
                                 <a href="/fakultas/{{ $item->id }}" class="btn btn-info">Detail</a>
                                 <form action="/fakultas/{{ $item->id }}" method="POST" style="display: inline-block;">
@@ -42,6 +42,9 @@
                     @endforeach
                 </tbody>
             </table>
+            <div class="col-3">
+                <a href="/" class="btn btn-secondary">Back to Home</a>
+            </div>
         </div>
     </div>
 

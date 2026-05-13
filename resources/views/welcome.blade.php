@@ -5,7 +5,5 @@
         </p>
         <a href="/fakultas" class="btn btn-primary">list fakultas</a>
         <a href="/fakultas/create" class="btn btn-primary">Add fakultas</a>
-        <a href="/fakultas/edit" class="btn btn-primary">Edit fakultas</a>
-        <a href="/fakultas/detail" class="btn btn-primary">Detail fakultas</a>
     </div>
 </x-layout>
