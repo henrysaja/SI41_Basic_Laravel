@@ -29,9 +29,25 @@ class FakultasController extends Controller
      */
     public function store(Request $request)
     {
+        $validated = $request->validate([
+            'nama_fakultas' => ['required', 'string', 'min:5', 'max:255'],
+            'nama_dekan' => ['required', 'string', 'min:5', 'max:255'],
+
+            [
+                'nama_fakultas.required' => 'Nama fakultas harus diisi.',
+                'nama_fakultas.string' => 'Nama fakultas harus berupa teks.',
+                'nama_fakultas.min' => 'Nama fakultas minimal 5 karakter.',
+                'nama_fakultas.max' => 'Nama fakultas maksimal 255 karakter.',
+                'nama_dekan.required' => 'Nama dekan harus diisi.',
+                'nama_dekan.string' => 'Nama dekan harus berupa teks.',
+                'nama_dekan.min' => 'Nama dekan minimal 5 karakter.',
+                'nama_dekan.max' => 'Nama dekan maksimal 255 karakter.',
+            ]
+        ]);
+
         Fakultas::create([
-            'nama_fakultas' => $request->nama_fakultas,
-            'nama_dekan' => $request->nama_dekan,
+            'nama_fakultas' => $validated['nama_fakultas'],
+            'nama_dekan' => $validated['nama_dekan'],
         ]);
         return redirect('/fakultas');
     }
@@ -61,10 +77,28 @@ class FakultasController extends Controller
      */
     public function update(Request $request, Fakultas $fakulta)
     {
-        $fakulta->update([
-            'nama_fakultas' => $request->nama_fakultas,
-            'nama_dekan' => $request->nama_dekan,
+        $validated = $request->validate([
+            'nama_fakultas' => ['required', 'string', 'min:5', 'max:255'],
+            'nama_dekan' => ['required', 'string', 'min:5', 'max:255'],
+
+            [
+                'nama_fakultas.required' => 'Nama fakultas harus diisi.',
+                'nama_fakultas.string' => 'Nama fakultas harus berupa teks.',
+                'nama_fakultas.min' => 'Nama fakultas minimal 5 karakter.',
+                'nama_fakultas.max' => 'Nama fakultas maksimal 255 karakter.',
+                'nama_dekan.required' => 'Nama dekan harus diisi.',
+                'nama_dekan.string' => 'Nama dekan harus berupa teks.',
+                'nama_dekan.min' => 'Nama dekan minimal 5 karakter.',
+                'nama_dekan.max' => 'Nama dekan maksimal 255 karakter.',
+            ]
+
         ]);
+
+        $fakulta->update([
+            'nama_fakultas' => $validated['nama_fakultas'],
+            'nama_dekan' => $validated['nama_dekan'],
+        ]);
+
         return redirect('/fakultas');
     }
 
