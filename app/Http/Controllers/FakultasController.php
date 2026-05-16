@@ -49,7 +49,7 @@ class FakultasController extends Controller
             'nama_fakultas' => $validated['nama_fakultas'],
             'nama_dekan' => $validated['nama_dekan'],
         ]);
-        return redirect('/fakultas');
+        return redirect('/fakultas')->with('success', 'Fakultas berhasil ditambahkan!');
     }
 
     /**
